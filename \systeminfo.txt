@@ -1,0 +1,15 @@
+Public IP Address: 83.27.161.178Processor: i386
+System: Darwin Darwin Kernel Version 20.3.0: Thu Jan 21 00:07:06 PST 2021; root:xnu-7195.81.3~1/RELEASE_X86_64
+Machine: x86_64
+Hostname: MacBook-Pro-Administrator.local
+Private IP Address: 192.168.1.33
+Public IP Address: 83.27.161.178Processor: i386
+System: Darwin Darwin Kernel Version 20.3.0: Thu Jan 21 00:07:06 PST 2021; root:xnu-7195.81.3~1/RELEASE_X86_64
+Machine: x86_64
+Hostname: MacBook-Pro-Administrator.local
+Private IP Address: 192.168.1.33
+Public IP Address: 83.27.161.178Processor: i386
+System: Darwin Darwin Kernel Version 20.3.0: Thu Jan 21 00:07:06 PST 2021; root:xnu-7195.81.3~1/RELEASE_X86_64
+Machine: x86_64
+Hostname: MacBook-Pro-Administrator.local
+Private IP Address: 192.168.1.33
