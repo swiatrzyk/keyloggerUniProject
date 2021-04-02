@@ -1,5 +1,5 @@
-sounddevice~=0.4.1
 scipy==1.6.2
 clipboard==0.0.4
 Pillow==8.2.0
-portaudio=
+sounddevice~=0.4.1
+requests~=2.25.1
