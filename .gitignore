@@ -1,6 +1,12 @@
 # Pliki, które generuje projekt
- \systeminfo.txt
- keys_info.txt
+ \system_info.txt
+ \keys_info.txt
+
+ \system_info_e.txt
+ \keys_info_e.txt
+
+ \encryption_key.txt
+
 
 
 # Byte-compiled / optimized / DLL files
