@@ -2,7 +2,9 @@ import socket
 import platform
 from requests import get
 
-system_information = "systeminfo.txt"
+from settings import filenames
+
+system_information = filenames["system_info"]
 extend = "\\"
 
 class SystemInfoProvider:
