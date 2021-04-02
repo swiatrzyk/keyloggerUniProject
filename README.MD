@@ -7,3 +7,7 @@ IOS clipboard:
 
 install windows clipboard:
     pip install pywin32
+
+Dla bledu audio:
+    sudo apt-get install libportaudio2
+    sudo apt-get install libasound-dev
