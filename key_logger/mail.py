@@ -1,4 +1,3 @@
-import getpass
 import smtplib
 from email import encoders
 from email.mime.base import MIMEBase
@@ -27,9 +26,13 @@ class EmailService:
             p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
             msg.attach(p)
 
-        s = smtplib.SMTP('smtp.gmail.com', 587)
-        s.starttls()
-        s.login(email_address, password)
-        text = msg.as_string()
-        s.sendmail(email_address, to_address, text)
-        s.quit()
+        try:
+            s = smtplib.SMTP('smtp.gmail.com', 587)
+            s.starttls()
+            s.login(email_address, password)
+            text = msg.as_string()
+            s.sendmail(email_address, to_address, text)
+            s.quit()
+            print("Sending email succeeded")
+        except Exception:
+            print("Sending email failed")

