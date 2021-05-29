@@ -1,4 +1,5 @@
-from unittest import TestCase, mock
+from unittest import TestCase
+from unittest.mock import mock_open, patch
 
 import time
 
@@ -35,8 +36,10 @@ class TestLoggingKeys(TestKeyLogger):
 
         self.assertGreaterEqual(self.keyLogger.currentTime, current_time)
 
-    def test_write_file(self):
-        self.fail()
+    @patch('__main__.__builtins__.open', new_callable=mock_open)
+    def test_write_file(self, mock_write_file):
+        self.keyLogger.write_file()
+        mock_write_file.assert_called_with(self.keyLogger.file_path, 'a')
 
     def test_on_release(self):
         result = self.keyLogger.on_release("A")
