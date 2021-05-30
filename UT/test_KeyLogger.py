@@ -1,9 +1,8 @@
-from unittest import TestCase
+from unittest import TestCase, mock
 from unittest.mock import mock_open, patch
 
 import time
-
-from pynput.keyboard import Key
+from pynput.keyboard import Key, Listener
 
 from KeyLogger import KeyLogger
 from settings import file_path, time_iteration
@@ -27,9 +26,6 @@ class TestInit(TestKeyLogger):
 
 
 class TestLoggingKeys(TestKeyLogger):
-    def test_run(self):
-        self.fail()
-
     def test_on_press(self):
         current_time = time.time()
         self.keyLogger.on_press("A")
@@ -38,6 +34,8 @@ class TestLoggingKeys(TestKeyLogger):
 
     @patch('__main__.__builtins__.open', new_callable=mock_open)
     def test_write_file(self, mock_write_file):
+        self.keyLogger.keys = ["A", "B"]
+        
         self.keyLogger.write_file()
         mock_write_file.assert_called_with(self.keyLogger.file_path, 'a')
 
@@ -63,4 +61,3 @@ class TestLoggingKeys(TestKeyLogger):
         self.assertGreaterEqual(self.keyLogger.currentTime, current_time)
         self.assertGreaterEqual(self.keyLogger.stoppingTime, stopping_time)
         self.assertEqual(self.keyLogger.number_of_iterations, 1)
-
