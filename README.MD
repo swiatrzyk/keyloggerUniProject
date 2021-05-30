@@ -37,7 +37,8 @@ Dla bledu audio:
     Niniejszy program rozpowszechniany jest z nadzieją, iż będzie on
     użyteczny - jednak BEZ JAKIEJKOLWIEK GWARANCJI, nawet domyślnej
     gwarancji PRZYDATNOŚCI HANDLOWEJ albo PRZYDATNOŚCI DO OKREŚLONYCH
-    ZASTOSOWAŃ. W celu uzyskania bliższych informacji sięgnij do     Powszechnej Licencji Publicznej GNU.
+    ZASTOSOWAŃ. W celu uzyskania bliższych informacji sięgnij do     
+    Powszechnej Licencji Publicznej GNU.
 
     Z pewnością wraz z niniejszym programem otrzymałeś też egzemplarz
     Powszechnej Licencji Publicznej GNU (GNU General Public License);
