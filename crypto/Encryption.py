@@ -25,6 +25,10 @@ class Encryption:
         self.encrypt()
 
     def encrypt(self):
+        """
+            Metoda szyfrujaca podany przez konstruktor plik za pomocą biblioteki fernet
+            :return:
+        """
         for count, encrypting_file in enumerate(self.files_to_encrypt):
             if os.path.isfile(self.files_to_encrypt[count]):
                 with open(self.files_to_encrypt[count], 'rb') as f:
@@ -35,10 +39,14 @@ class Encryption:
 
                 with open(self.encrypted_file_names[count], 'wb') as f:
                     f.write(encrypted)
-
+                return encrypted
                 # send_email(self.encrypted_file_names[count], self.encrypted_file_names[count])
 
     def get_key(self):
+        """
+           Pobiera klucz pozwalający na zaszyfrowanie/odszyfowanie danych
+           :return:
+       """
         key_path = "\\".join([self.path, key_filename])
         if not os.path.isfile(key_path):
             KeyGenerator(self.file_path)
