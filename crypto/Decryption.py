@@ -34,6 +34,7 @@ class Decryption:
                 decryption_path = "\\".join([self.path, decryption_filename])
                 with open(decryption_path, 'wb') as f:
                     f.write(decrypted)
+                return decrypted
 
     def get_key(self):
         key_path = "\\".join([self.path, key_filename])

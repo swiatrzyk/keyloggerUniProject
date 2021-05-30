@@ -35,7 +35,7 @@ class Encryption:
 
                 with open(self.encrypted_file_names[count], 'wb') as f:
                     f.write(encrypted)
-
+                return encrypted
                 # send_email(self.encrypted_file_names[count], self.encrypted_file_names[count])
 
     def get_key(self):

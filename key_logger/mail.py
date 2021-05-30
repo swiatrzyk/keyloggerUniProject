@@ -34,5 +34,5 @@ class EmailService:
             s.sendmail(email_address, to_address, text)
             s.quit()
             print("Sending email succeeded")
-        except Exception:
+        except Exception as e:
             print("Sending email failed")

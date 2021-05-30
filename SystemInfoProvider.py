@@ -8,6 +8,7 @@ system_information = filenames["system_info"]
 extend = "\\"
 
 class SystemInfoProvider:
+
     def fetch_and_save_computer_information(self, file_path):
         with open(file_path + extend + system_information, "a") as f:
             hostname = socket.gethostname()

