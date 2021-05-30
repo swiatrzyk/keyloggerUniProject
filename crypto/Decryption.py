@@ -21,6 +21,10 @@ class Decryption:
         self.decrypt()
 
     def decrypt(self):
+        """
+            Metoda deszyfrująca podany przez konstruktor plik za pomocą biblioteki fernet
+            :return:
+        """
         for count, decrypting_file in enumerate(self.encrypted_files):
             if os.path.isfile(self.encrypted_files[count]):
                 with open(self.encrypted_files[count], 'rb') as f:
@@ -37,6 +41,10 @@ class Decryption:
                 return decrypted
 
     def get_key(self):
+        """
+            Pobiera klucz pozwalający na zaszyfrowanie/odszyfowanie danych
+            :return:
+        """
         key_path = "\\".join([self.path, key_filename])
         if not os.path.isfile(key_path):
             KeyGenerator(self.file_path)
